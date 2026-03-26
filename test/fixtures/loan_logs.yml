@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loan: one
+  action: MyString
+  performed_by: one
+
+two:
+  loan: two
+  action: MyString
+  performed_by: two
