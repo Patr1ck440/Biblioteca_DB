@@ -3,9 +3,9 @@ class CreateLoanLogs < ActiveRecord::Migration[8.1]
     create_table :loan_logs do |t|
       t.references :loan, null: false, foreign_key: true
       t.string :action
-      t.references :performed_by, null: false, foreign_key: true
-
+      t.bigint :performed_by_id, null: false
       t.timestamps
     end
+    add_foreign_key :loan_logs, :users, column: :performed_by_id
   end
 end

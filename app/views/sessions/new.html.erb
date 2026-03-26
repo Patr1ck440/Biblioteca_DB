@@ -1,2 +1,13 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h2>Autentificare</h2>
+<%= form_with url: login_path do |f| %>
+  <div style="margin-bottom:15px">
+    <%= f.label :email, "Email" %><br>
+    <%= f.email_field :email, style: "width:300px;padding:8px;margin-top:5px" %>
+  </div>
+  <div style="margin-bottom:15px">
+    <%= f.label :password, "Parolă" %><br>
+    <%= f.password_field :password, style: "width:300px;padding:8px;margin-top:5px" %>
+  </div>
+  <%= f.submit "Autentificare", style: "background:#2c3e50;color:white;padding:10px 20px;border:none;border-radius:4px;cursor:pointer" %>
+<% end %>
+<p>Nu ai cont? <%= link_to "Înregistrează-te", new_user_path %></p>
