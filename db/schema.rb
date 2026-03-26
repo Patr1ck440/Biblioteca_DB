@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.1].define(version: 2026_03_26_074356) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
   create_table "approval_requests", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.integer "loan_id", null: false
@@ -70,7 +73,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_26_074356) do
   add_foreign_key "approval_requests", "loans"
   add_foreign_key "approval_requests", "users"
   add_foreign_key "loan_logs", "loans"
-  add_foreign_key "loan_logs", "performed_bies"
+  add_foreign_key "loan_logs", "users", column: "performed_by_id"
   add_foreign_key "loans", "books"
   add_foreign_key "loans", "users"
 end
